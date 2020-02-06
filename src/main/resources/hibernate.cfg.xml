@@ -1,0 +1,38 @@
+<hibernate-configuration>
+    <session-factory>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/jdbc_schema?serverTimezone=Europe/Warsaw</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">michal1</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">false</property>
+        <property name="use.sql_comments">true</property>
+        <mapping class="com.example.entity.Dog"/>                   <!-- wymagane wpisy, żeby encje były zarządzane przez Hibernate -->
+        <mapping class="com.example.entity.Employee"/>
+        <mapping class="com.example.entity.Form"/>
+        <mapping class="com.example.entity.Shop"/>
+        <mapping class="com.example.entity.Husband"/>
+        <mapping class="com.example.entity.Wife"/>
+        <mapping class="com.example.entity.Client"/>
+        <mapping class="com.example.entity.Book"/>
+        <mapping class="com.example.entity.School"/>
+        <mapping class="com.example.entity.Student"/>
+        <mapping class="com.example.entity.Fruit"/>
+        <mapping class="com.example.entity.Apple"/>
+        <mapping class="com.example.entity.Orange"/>
+    </session-factory>
+</hibernate-configuration>
+
+<!--        
+            hbm2ddl.auto Data Definition Language CREATE, ALTER, DROP 
+            validate: validate the schema, makes no changes to the database
+            update: update the schema
+            create: creates the schema, destroying previous data
+            create-drop: drop the schema when the SessionFactory is closed explicitly, typically when the application is stopped
+            create-only: database creation will be generated
+            drop: database dropping will be generated
+            none: no action will be performed
+            https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#configurations-hbmddl
+-->

@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Main6Annotations {
+public class Main7Annotations {
 
     /*
         1.  Opis wybranych adnotacji znajduje się w klasie Employee

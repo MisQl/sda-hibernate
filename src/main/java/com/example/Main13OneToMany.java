@@ -1,14 +1,14 @@
 package com.example;
 
+import com.example.entity.Book;
+import com.example.entity.Client;
 import com.example.entity.Husband;
 import com.example.entity.Wife;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import javax.persistence.EntityManager;
-
-public class Main10RemoveCascade {
+public class Main13OneToMany {
 
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -16,11 +16,19 @@ public class Main10RemoveCascade {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Husband husband = session.find(Husband.class, 2L);
-        session.remove(husband);                                    // @OneToOne(cascade = CascadeType.ALL) ustawione w encji husband powoduje, że
-                                                                    // session.remove zostanie wywołane dla encji Husband i połączonej z nią encji Wife
+        Client client = new Client("Andrzej");
+        client.addBook(new Book("Ogniem i mieczem"));
+        client.addBook(new Book("Alicja w krainie czarów"));
+        client.addBook(new Book("Harry Potter"));
+        client.addBook(new Book("Władca pierścieni"));
+
+        session.persist(client);
 
         transaction.commit();
         session.close();
     }
+
+    /*
+        1.  W klasach Client i Book znajduje się opis użytych adnotacji
+    */
 }

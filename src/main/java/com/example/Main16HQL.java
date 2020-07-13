@@ -1,17 +1,12 @@
 package com.example;
 
 import com.example.entity.Husband;
-import com.example.entity.School;
-import com.example.entity.Student;
-import com.example.entity.Wife;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Main16HQL {
 
@@ -22,11 +17,11 @@ public class Main16HQL {
         Transaction transaction = session.beginTransaction();
 
         Query queryOne = session.createQuery("FROM Husband");
-        List<Husband> resultsOne = (List<Husband>) queryOne.getResultList();
+        List<Husband> resultsOne = queryOne.getResultList();
         resultsOne.stream().map(Husband::getName).forEach(System.out::println);
 
         Query queryTwo = session.createQuery("SELECT h.name FROM Husband AS h");
-        List<String> resultsTwo = (List<String>) queryTwo.getResultList();
+        List<String> resultsTwo = queryTwo.getResultList();
         resultsTwo.forEach(System.out::println);
 
         Query<Husband> queryThree = session.createQuery("FROM Husband AS h WHERE h.id = :id", Husband.class);
@@ -40,7 +35,7 @@ public class Main16HQL {
 
         System.out.println(husband.getName());
 
-        session.createQuery("select w.name from Husband as h inner join h.wife as w")
+        session.createQuery("SELECT w.name FROM Husband AS h INNER JOIN h.wife AS w")
                 .getResultList()
                 .stream()
                 .forEach(System.out::println);

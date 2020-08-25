@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class Main5UpdateEntity {
+public class Main4UpdateEntity {
 
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
@@ -13,10 +13,10 @@ public class Main5UpdateEntity {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Dog dog = session.find(Dog.class, 1L);
+        Dog dog = session.find(Dog.class, 1L);      // SELECT * FROM dog WHERE dog.id = 1;
         dog.setAge(20);
 
-        transaction.commit();
+        transaction.commit();                       // UPDATE dog SET name=Ares, race=Terier, age=20 WHERE dog.id = 1;
         session.close();
     }
 

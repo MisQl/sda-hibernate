@@ -34,6 +34,11 @@ public class Employee {
     String description;                                         // podczas ładowania wszystkich innych pól encji z bazy danychto to pole nie jest wypełnione
                                                                 // dopiero podczas bezpośredniego odwołania się do pola przez np. getDescription() dane są pobierane do encji z bazy danych
 
+    /*
+        Żeby adnotacja @Basic(fetch = FetchType.LAZY) działała poprawnie trzeba dodać poniższy plugin do pom.xml
+        https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#BytecodeEnhancement-enhancement-maven
+    */
+
     public Employee() {
     }
 

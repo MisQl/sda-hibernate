@@ -13,15 +13,20 @@ public class Main5UpdateEntity {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Dog dog = session.find(Dog.class, 1L);      // SELECT * FROM dog WHERE dog.id = 1;
+        Dog dog = new Dog();
+        dog.setId(1L);
+        dog.setName("Ares");
+        dog.setRace("Terier");
         dog.setAge(20);
+        session.update(dog);
 
         transaction.commit();                       // UPDATE dog SET name=Ares, race=Terier, age=20 WHERE dog.id = 1;
+                                                    // jeśli dog o id 1 nie istnieje to rzuci OptimisticLockException
         session.close();
     }
 
     /*
-        1.  Ostateczny stan naszego psa w bazie danych
+        1.  Ostateczny stan dog w bazie danych
             id      1
             age     20
             name    Ares

@@ -16,9 +16,14 @@ public class Main6DeleteEntity {
         Dog dog = session.find(Dog.class, 2L);
         System.out.println(dog);
 
-        session.delete(dog);                            // nasz pies zostanie usunięty z bazy danych
+        session.delete(dog);                            // jeśli dog o id 2 nie istnieje to rzuci IllegalArgumentException bo dog=null
 
-        transaction.commit();
+        Dog otherDog = new Dog();
+        otherDog.setId(3L);
+
+        session.delete(otherDog);
+
+        transaction.commit();                           // jeśli dog o id 3 nie istnieje to rzuci OptimisticLockException
         session.close();
     }
 }

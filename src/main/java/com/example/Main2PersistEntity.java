@@ -5,7 +5,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-public class Main2SaveEntity {
+public class Main2PersistEntity {
 
     /*
         1.  Możemy stworzyć strukturę tabeli "dog" w bazie danych

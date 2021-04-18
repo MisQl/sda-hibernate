@@ -13,7 +13,7 @@ public class School {
     String name;
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "schools", fetch = FetchType.EAGER)           // mappedBy określa pole wg. którego będzie mapowana relacja (encja Student)
     Set<Student> students = new HashSet<>();                                                        // fetch określa, że wszystkie Encje z kolekcji student będą odrazu pobierane z bazy danych
-                                                                                                    // domyślny FetchType dla @ManyTomany to LAZY
+                                                                                                    // domyślny FetchType dla @ManyToMany to LAZY
 
     public School() {
     }

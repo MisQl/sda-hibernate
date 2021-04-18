@@ -24,12 +24,12 @@ public class Main16HQL {
         List<String> resultsTwo = queryTwo.getResultList();
         resultsTwo.forEach(System.out::println);
 
-        Query<Husband> queryThree = session.createQuery("FROM Husband AS h WHERE h.id = :id", Husband.class);
+        Query<Husband> queryThree = session.createQuery("SELECT h FROM Husband AS h WHERE h.id = :id", Husband.class);
         queryThree.setParameter("id", 4L);
         Husband singleResult = queryThree.getSingleResult();
         System.out.println(singleResult.getName());
 
-        Husband husband = session.createQuery("FROM Husband AS h WHERE h.id = :id", Husband.class)
+        Husband husband = session.createQuery("SELECT h FROM Husband AS h WHERE h.id = :id", Husband.class)
                 .setParameter("id", 4L)
                 .getSingleResult();
 

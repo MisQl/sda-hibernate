@@ -18,7 +18,8 @@ public class Main5UpdateEntity {
         dog.setName("Ares");
         dog.setRace("Terier");
         dog.setAge(20);
-        session.update(dog);
+        session.update(dog);                        // UPDATE wysyła stan całej encji dog
+                                                    // jeśli jakieś pole ma wartość null, to również zotanie zaktualizowane
 
         transaction.commit();                       // UPDATE dog SET name=Ares, race=Terier, age=20 WHERE dog.id = 1;
                                                     // jeśli dog o id 1 nie istnieje to rzuci OptimisticLockException

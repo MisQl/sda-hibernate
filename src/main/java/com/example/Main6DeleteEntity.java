@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.persistence.OptimisticLockException;
+
 public class Main6DeleteEntity {
 
     public static void main(String[] args) {
@@ -13,17 +15,16 @@ public class Main6DeleteEntity {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Dog dog = session.find(Dog.class, 2L);
-        System.out.println(dog);
+        try {
+            Dog dog = new Dog();
+            dog.setId(3L);
+            session.delete(dog);
+            transaction.commit();                           // jeśli dog o id 3 nie istnieje to rzuci OptimisticLockException
+        } catch (OptimisticLockException e) {
+            System.out.println("Krotka o podanym id nie istnieje w bazie");
+            transaction.rollback();
+        }
 
-        session.delete(dog);                            // jeśli dog o id 2 nie istnieje to rzuci IllegalArgumentException bo dog=null
-
-        Dog otherDog = new Dog();
-        otherDog.setId(3L);
-
-        session.delete(otherDog);
-
-        transaction.commit();                           // jeśli dog o id 3 nie istnieje to rzuci OptimisticLockException
         session.close();
     }
 }

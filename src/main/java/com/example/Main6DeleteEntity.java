@@ -22,7 +22,6 @@ public class Main6DeleteEntity {
             transaction.commit();                           // jeśli dog o id 3 nie istnieje to rzuci OptimisticLockException
         } catch (OptimisticLockException e) {
             System.out.println("Krotka o podanym id nie istnieje w bazie");
-            transaction.rollback();
         }
 
         session.close();

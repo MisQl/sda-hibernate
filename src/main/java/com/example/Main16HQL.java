@@ -16,11 +16,11 @@ public class Main16HQL {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Query queryOne = session.createQuery("FROM Husband");
+        Query<Husband> queryOne = session.createQuery("FROM Husband");
         List<Husband> resultsOne = queryOne.getResultList();
         resultsOne.stream().map(Husband::getName).forEach(System.out::println);
 
-        Query queryTwo = session.createQuery("SELECT h.name FROM Husband AS h");
+        Query<String> queryTwo = session.createQuery("SELECT h.name FROM Husband AS h");
         List<String> resultsTwo = queryTwo.getResultList();
         resultsTwo.forEach(System.out::println);
 

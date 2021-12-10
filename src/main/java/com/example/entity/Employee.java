@@ -30,15 +30,7 @@ public class Employee {
     Gender gender;                                              // bez tak użytej adnotacji enum byłby przechowywana jako Integer
 
     @Lob                                                        // adnotacja @Lob (Large object) informuje, że pole zawiera duże ilości danych - może być użyta do typu znakowego (np. String) lub binarnego (np. byte[])
-    @Basic(fetch = FetchType.LAZY)                              // przykłądowe użycie adnotacji @Basic pozwala na leniwe załadowanie danych:
-    String description;                                         // podczas ładowania wszystkich innych pól encji z bazy danychto to pole nie jest wypełnione
-                                                                // dopiero podczas bezpośredniego odwołania się do pola przez np. getDescription() dane są pobierane do encji z bazy danych
-
-    /*
-        Żeby adnotacja @Basic(fetch = FetchType.LAZY) działała poprawnie trzeba dodać poniższy plugin do pom.xml
-        https://docs.jboss.org/hibernate/orm/5.4/userguide/html_single/Hibernate_User_Guide.html#BytecodeEnhancement-enhancement-maven
-        po dodaniu pluginu trzeba skompilować kod (mvn compile)
-    */
+    String description;
 
     public Employee() {
     }

@@ -20,7 +20,7 @@ public class Main7Annotations {
     */
 
     public static void main(String[] args) throws ParseException {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

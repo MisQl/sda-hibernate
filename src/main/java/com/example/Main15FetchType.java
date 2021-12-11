@@ -11,7 +11,7 @@ import java.util.Set;
 public class Main15FetchType {
 
     public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

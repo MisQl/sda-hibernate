@@ -10,7 +10,7 @@ import javax.persistence.OptimisticLockException;
 public class Main6DeleteEntity {
 
     public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
 
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

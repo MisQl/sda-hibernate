@@ -31,7 +31,7 @@ public class Main2PersistEntity {
         Transaction transaction = session.beginTransaction();
 
         session.persist(new Dog("Ares", 10, "Terier"));
-        session.persist(new Dog("Sonia", 10, "Bulgod"));
+        session.persist(new Dog("Sonia", 10, "Buldog"));
         session.persist(new Dog("Reksio", 10, "Doberman"));
         session.persist(new Dog("Benio", 10, "Jamnik"));
         session.persist(new Dog("Aza", 10, "Wilczur"));

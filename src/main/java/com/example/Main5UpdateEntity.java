@@ -42,6 +42,6 @@ public class Main5UpdateEntity {
             id      2
             age     25
             name    Sonia
-            race    Bulgod
+            race    Buldog
     */
 }

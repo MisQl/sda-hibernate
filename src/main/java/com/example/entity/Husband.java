@@ -26,10 +26,6 @@ public class Husband {
         this.wife = wife;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -40,10 +36,6 @@ public class Husband {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Wife getWife() {
-        return wife;
     }
 
     public void setWife(Wife wife) {

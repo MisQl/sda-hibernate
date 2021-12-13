@@ -5,8 +5,8 @@ import java.util.Date;
 
 @Entity
 @Table(name = "employee_table")                                 // definiujemy nazwę tabeli, inaczej nazwa jest określana na podstawie nazwy klasy
-public class Employee {
-
+public class Employee {                                         // ustawienie parametru @Entity(name="") również zdefiniuje nazwę tabeli, ale jeszcze
+                                                                // zmieni nazwę encji - ma to wpływ na zapytania HQL w których nazwa encji jest wykorzystywana
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

@@ -18,8 +18,7 @@ public class Main12MergeCascade {
         husband.setId(3L);
         husband.setName("Janusz");
 
-        Wife wife = new Wife();
-        wife.setName("Aleksandra");
+        Wife wife = new Wife("Aleksandra");
         husband.setWife(wife);
 
         session.merge(husband);                 // @OneToOne(cascade = CascadeType.ALL) ustawione w encji husband powoduje, że

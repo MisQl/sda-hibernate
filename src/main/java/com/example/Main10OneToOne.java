@@ -15,12 +15,16 @@ public class Main10OneToOne {
         Transaction transaction = session.beginTransaction();
 
         Husband husband = new Husband("Adam");
+        session.persist(husband);
+
         Wife wife = new Wife("Ewa");
-        wife.setHusband(husband);                       // Wife nie jest właścicelem relacji, dlatego samo przypisanie Husband do Wife jest niepoprawne
+        session.persist(wife);
+
+        wife.setHusband(husband);                       // Wife nie jest właścicelem relacji, dlatego samo przypisanie Husband do Wife jest niewystarczające
                                                         // relacja nie zostanie odwzorowana w bazie danych
                                                         // dlatego implementacja wife.setHusband(husband) wykonuje husband.setWife(this)
 
-        session.persist(husband);
+
 
         session.persist(new Husband("Damian", new Wife("Sabrina")));
         session.persist(new Husband("Bertek", new Wife("Kinga")));
